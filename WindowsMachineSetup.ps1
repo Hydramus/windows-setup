@@ -37,16 +37,16 @@ $settingsJson | Out-File $settingsPath -Encoding utf8
 #Install New apps
 Write-Output "Installing Apps"
 $apps = @(
-    @{name = "Microsoft.AzureCLI" }, 
+    #@{name = "Microsoft.AzureCLI" }, 
     @{name = "Microsoft.PowerShell" }, 
-    @{name = "Microsoft.VisualStudioCode" }, 
+    #@{name = "Microsoft.VisualStudioCode" }, 
     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
-    @{name = "Microsoft.AzureStorageExplorer" }, 
+    #@{name = "Microsoft.AzureStorageExplorer" }, 
     @{name = "Microsoft.PowerToys" }, 
     @{name = "Git.Git" }, 
-    @{name = "Docker.DockerDesktop" },
-    @{name = "Microsoft.dotnet" },
-    @{name = "GitHub.cli" },
+    #@{name = "Docker.DockerDesktop" },
+    #@{name = "Microsoft.dotnet" },
+    #@{name = "GitHub.cli" },
     @{name = "Adobe.Acrobat.Reader.64-bit"}, #Adobe Acrobat Reader DC
     @{name = "Python.Python.3.9"},
     @{name = "9WZDNCRFHWQT"; source = "msstore"}, # Drawboard PDF
@@ -67,14 +67,14 @@ $apps = @(
 
 );
 Foreach ($app in $apps) {
-    $listApp = winget list --exact -q $app.name
+    $listApp = winget list --exact -q $app.name 
     if (![String]::Join("", $listApp).Contains($app.name)) {
         Write-host "Installing:" $app.name
         if ($app.source -ne $null) {
-            winget install --exact --silent $app.name --source $app.source
+            winget install --exact --silent $app.name --source $app.source --accept-source-agreements
         }
         else {
-            winget install --exact --silent $app.name 
+            winget install --exact --silent $app.name --accept-source-agreements
         }
     }
     else {
