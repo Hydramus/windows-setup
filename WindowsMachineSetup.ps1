@@ -61,20 +61,21 @@ $apps = @(
     @{name = "9NCTDW2W1BH8"; source = "msstore" },        # Raw-PictureExtension
     @{name = "9N95Q1ZZPMH4"; source = "msstore" },        # MPEG-2-VideoExtension
     @{name = "9N4WGH0Z6VHQ"; source = "msstore" },        # HEVC-VideoExtension
+    @{name = "9NLXL1B6J7LW"; source = "msstore" },        # SafeInCloud password management
     @{name = "7zip.7zip"},
     @{name = "qBittorrent.qBittorrent"},
-    @{name = "TeamViewer.TeamViewer"}    
-
+    @{name = "TeamViewer.TeamViewer"},    
+    @{name = "Notepad++.Notepad++"}
 );
 Foreach ($app in $apps) {
     $listApp = winget list --exact -q $app.name 
     if (![String]::Join("", $listApp).Contains($app.name)) {
         Write-host "Installing:" $app.name
         if ($app.source -ne $null) {
-            winget install --exact --silent $app.name --source $app.source --accept-source-agreements
+            winget install --exact --silent $app.name --source $app.source --accept-source-agreements --accept-package-agreements
         }
         else {
-            winget install --exact --silent $app.name --accept-source-agreements
+            winget install --exact --silent $app.name --accept-source-agreements --accept-package-agreements
         }
     }
     else {
