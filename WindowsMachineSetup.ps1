@@ -85,7 +85,7 @@ $apps = @(
     @{name = "Zoom.Zoom"},
     @{name = "Zoom.Zoom.OutlookPlugin"},
     @{name = "Tencent.WeChat"},
-    @{name = "Tencent.VooVMeeting"},
+    #@{name = "Tencent.VooVMeeting"},
     @{name = "Dropbox.Dropbox"},
     @{name = "9PMMSR1CGPWG"; source = "msstore" },        # HEIF-PictureExtension
     @{name = "9MVZQVXJBQ9V"; source = "msstore" },        # AV1 VideoExtension
@@ -97,6 +97,17 @@ $apps = @(
     @{name = "qBittorrent.qBittorrent"},
     @{name = "TeamViewer.TeamViewer"},    
     @{name = "Notepad++.Notepad++"}
+    @{name = "Safing.Portmaster"}
+    @{name = "SlackTechnologies.Slack"}
+    @{name = "WhatsApp.WhatsApp"}
+    @{name = "Valve.Steam"}
+    @{name = "EpicGames.EpicGamesLauncher"}
+    @{name = "9WZDNCRD29V9"; source = "msstore" },        # Microsoft 365 (Office)
+    @{name = "Nvidia.GeForceExperience"}
+    @{name = "Nvidia.Broadcast"}
+    @{name = "VirtualDesktop.Streamer"}
+    @{name = "SideQuestVR.SideQuest"}
+    @{name = "JanDeDobbeleer.OhMyPosh"}
 );
 Foreach ($app in $apps) {
     $listApp = winget list --exact -q $app.name 
@@ -159,15 +170,11 @@ $apps = @(
         "*Microsoft.Office.OneNote*"
         "*Microsoft.Office.Sway*"
         "*Microsoft.OneConnect*"
-        "*Microsoft.Print3D*"
-        "*Microsoft.RemoteDesktop*"
-        "*Microsoft.SkypeApp*"
         "*Microsoft.Todos*"
         "*Microsoft.WindowsAlarms*"
         "*Microsoft.WindowsFeedbackHub*"
         "*Microsoft.WindowsMaps*"
         "*Microsoft.WindowsSoundRecorder*"
-        "*Microsoft.ZuneMusic*"
         "*Microsoft.ZuneVideo*"
         "*PandoraMediaInc*"
         "*PICSART-PHOTOSTUDIO*"
@@ -179,7 +186,8 @@ $apps = @(
         "*king.com.BubbleWitch3Saga*"
         "*king.com.CandyCrushSaga*"
         "*king.com.CandyCrushSodaSaga*"
-        "*Microsoft.GamingApp*"
+        #Apps that are required or useful for gaming:
+        "*Microsoft.GamingApp*"                     
         "*Microsoft.XboxGameOverlay*"
         "*Microsoft.XboxGamingOverlay*"
         "*Microsoft.XboxIdentityProvider*"
