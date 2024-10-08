@@ -108,6 +108,7 @@ $apps = @(
     @{name = "VirtualDesktop.Streamer"}
     @{name = "SideQuestVR.SideQuest"}
     @{name = "JanDeDobbeleer.OhMyPosh"}
+    @{name = "QL-Win.QuickLook"}
 );
 Foreach ($app in $apps) {
     $listApp = winget list --exact -q $app.name 
